@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ai math/lenier algebra/vectors.md",
+                "file": "ai math/lenier algebra/exercises.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "vectors"
+              "title": "exercises"
             }
           },
           {
@@ -35,7 +35,8 @@
               "title": "vectors"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -198,14 +199,14 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "05f69f1c1f10805f",
+  "active": "2f966fe6c9bd4d63",
   "lastOpenFiles": [
     "ai math/lenier algebra/exercises.md",
     "ai math/lenier algebra/vectors.md",
+    "symbols and formulas.md",
     "README.md",
     "ML Engineer.md",
     "Screenshot 2026-03-21 214838.png",
-    "symbols and formulas.md",
     "Untitled.base",
     "Screenshot 2026-03-21 214838 1.png",
     "ai math/lenier algebra/Screenshot 2026-03-21 214838.png",

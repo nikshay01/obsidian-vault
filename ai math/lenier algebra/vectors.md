@@ -1,25 +1,63 @@
-a vector is basically an arrow in 2d or 3d that works on xy and xyz axis 
+# Vectors
 
+A **vector** is an arrow in 2D or 3D space.
 
-as shown in the image 2 is the x axis which is showing how far the arrow tip goes in the sideways and 3 is z axis which tells us how far up the arrow tix goes above x axis and then the one in the middle [] tells us how far the arrow goes in the 3rd direction that is z axis
+- In **2D** → $(x, y)$ → moves along x (sideways) and y (up/down)  
+- In **3D** → $(x, y, z)$ → adds depth (z direction)
+
+📌 Each value tells how far the arrow goes in that direction.
+
 ![[Screenshot 2026-03-21 214838.png]]
-#  Magnitude (Length of Vector)
 
-The size of a vector is:
+---
+
+## Magnitude (Length of Vector)
+
+Size (length) of a vector:
+
+[[exercises#dot]]
 
 $$
 |\vec{v}| = \sqrt{x^2 + y^2}
 $$
 
-For (3, 4):
+Example: $(3,4)$  
 $$
-|\vec{v}| = \sqrt{3^2 + 5^2} = 5
+|\vec{v}| = \sqrt{3^2 + 4^2} = 5
 $$
-so basically like pythagoras
 
-# operations
-## additions
-for 2d vectors
-$$(x1,y1)+(x2,y2)=(x1+x2,  y1+y2)$$
-for 3d vectors
-$$(x1,y1)+(x2,y2)+(z1,z2)=(x1+x2,  y1+y2, z1+z2)$$
+👉 Same idea as **Pythagoras theorem**
+
+---
+
+## Operations
+
+## addition
+
+[[exercises#Addition Practic]]
+
+- **2D:** $(x_1,y_1)+(x_2,y_2)=(x_1+x_2,\ y_1+y_2)$  
+- **3D:** $(x_1,y_1,z_1)+(x_2,y_2,z_2)=(x_1+x_2,\ y_1+y_2,\ z_1+z_2)$  
+
+---
+
+## Scaling
+
+[[symbols and formulas#scaling]]
+
+Multiply a vector by a number (scalar).
+
+- $k>1$ → stretch  
+- $0<k<1$ → shrink  
+- $k=0$ → zero vector  
+- $k<0$ → flip direction  
+
+Examples:  
+$2(3,4)=(6,8)$, $-1(3,4)=(-3,-4)$  
+
+**Magnitude rule:**  
+$$
+|k\vec{v}| = |k|\cdot|\vec{v}|
+$$
+
+Example: $(3,4)\to5,\quad 2\vec{v}\to10$
