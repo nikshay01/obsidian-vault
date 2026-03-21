@@ -1,7 +1,7 @@
 {
   "remoteURL": "https://github.com/nikshay01/obsidian-vault.git",
   "gitLocation": "",
-  "syncinterval": 0,
+  "syncinterval": 1,
   "isSyncOnLoad": false,
   "checkStatusOnLoad": true
 }

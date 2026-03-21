@@ -17,4 +17,9 @@ $$
 $$
 so basically like pythagoras
 
-# 
+# operations
+## additions
+for 2d vectors
+$$(x1,y1)+(x2,y2)=(x1+x2,  y1+y2)$$
+for 3d vectors
+$$(x1,y1)+(x2,y2)+(z1,z2)=(x1+x2,  y1+y2, z1+z2)$$
