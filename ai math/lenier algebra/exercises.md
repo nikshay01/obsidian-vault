@@ -42,12 +42,17 @@ which means that in the end the drone's positions was `[2,6]`
 Exercise 5: Compute `|a|` for `a = [3, 4]`. (Hint: 3-4-5 triangle.)
 
 $$|a| = \sqrt{3^2+4^2} = \sqrt{9+16} = \sqrt{25} = 5 $$
-							=> |a| = 5
+          => |a| = 5
+
 Exercise 6: Compute `|v|` for `v = [1, 1, 1]`.
 $$|v| =\sqrt{1^2+1^2+1^2} = \sqrt{1+1+1} =\sqrt{3} = 1.73 $$
+
+
 Exercise 7: What is the magnitude of the zero vector `[0, 0, 0]`?
 $$|v| = \sqrt{0^2+0^2+0^2} =\sqrt{0} = 0$$
+
 since magnitute means length of the vector so if both axis are at origin point then the lengh of that vector will be nothing since it never began
+
 
 Exercise 8: Find a vector in 2D with magnitude exactly 1. (This is called a unit vector.)
 $$if -\vec{v} = [0,1] then, |v| = \sqrt{0^2+1^2}=\sqrt{0+1}=\sqrt{1}=1 $$
