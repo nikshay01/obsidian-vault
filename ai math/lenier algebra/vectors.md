@@ -56,8 +56,8 @@ Examples:
 $2(3,4)=(6,8)$, $-1(3,4)=(-3,-4)$  
 
 **Magnitude rule:**  
-$$
-|k\vec{v}| = |k|\cdot|\vec{v}|
-$$
+
+$$k\vec{v}| = |k|\cdot|\vec{v}$$
+
 
 Example: $(3,4)\to5,\quad 2\vec{v}\to10$
