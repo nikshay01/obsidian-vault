@@ -1,6 +1,6 @@
 # models/BodyMetric.js — Body Measurement Schema
 
-Tracks physical body measurements organized by body region.
+Tracks physical body measurements organized by body region. Exposed via [[routes/bodyMetrics]].
 
 ---
 

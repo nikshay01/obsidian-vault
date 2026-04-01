@@ -1,6 +1,6 @@
 # models/Devotion.js — Devotion Session Schema
 
-Tracks spiritual devotion sessions with cultural/Hindu-specific fields and auto-computed stress delta.
+Tracks spiritual devotion sessions with cultural/Hindu-specific fields and auto-computed stress delta. Exposed via [[routes/devotion]].
 
 ---
 

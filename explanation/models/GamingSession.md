@@ -1,6 +1,6 @@
 # models/GamingSession.js — Gaming Session Schema
 
-Tracks gaming sessions with auto-computed duration, match tracking, and custom metrics.
+Tracks gaming sessions with auto-computed duration, match tracking, and custom metrics. Uses [[utils/computedFields]]. Exposed via [[routes/gamingSessions]].
 
 ---
 
@@ -42,8 +42,8 @@ gamingSessionSchema.pre('save', function (next) {
   next();
 });
 ```
-- Auto-computes duration from start/end timestamps
-- Same pattern used in WorkSession, HobbySession, and PainLog
+- Auto-computes duration from start/end timestamps using [[utils/computedFields|durationMinutes()]]
+- Same pattern used in [[models/WorkSession|WorkSession]], [[models/HobbySession|HobbySession]], and [[models/PainLog|PainLog]]
 
 ```js
 module.exports = mongoose.model('GamingSession', gamingSessionSchema);

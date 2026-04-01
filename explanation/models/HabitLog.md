@@ -1,6 +1,6 @@
 # models/HabitLog.js — Habit Log Schema
 
-Individual log entries for habits — tracks what was logged, running totals, and auto-computed completion percentage.
+Individual log entries for habits — tracks what was logged, running totals, and auto-computed completion percentage. Belongs to a [[models/HabitDefinition]]. Uses [[utils/computedFields]]. Exposed via [[routes/habitLogs]].
 
 ---
 
@@ -11,7 +11,7 @@ Individual log entries for habits — tracks what was logged, running totals, an
     periodDate: { type: Date, required: true, index: true },
     loggedAt: { type: Date, default: Date.now },
 ```
-- `habitId` — links to which habit definition this log is for
+- `habitId` — links to which [[models/HabitDefinition|habit definition]] this log is for
 - `periodDate` — which day/week this log belongs to (normalized date)
 - `loggedAt` — exact timestamp of when the entry was made
 
@@ -45,7 +45,7 @@ habitLogSchema.pre('save', function (next) {
   next();
 });
 ```
-- Auto-computes: `(periodTotalValue / targetValue) * 100`
+- Auto-computes: `(periodTotalValue / targetValue) * 100` using [[utils/computedFields|completionPercent()]]
 - Example: logged 2 of 3 target hours → `66.7%`
 
 ```js
