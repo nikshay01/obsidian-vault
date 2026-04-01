@@ -11,14 +11,10 @@
             "id": "05f69f1c1f10805f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "explanation/middleware/errorHandler.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "errorHandler"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           },
           {
@@ -200,6 +196,7 @@
   },
   "active": "05f69f1c1f10805f",
   "lastOpenFiles": [
+    "explanation/middleware/errorHandler.md",
     "explanation/server.md",
     "explanation/config/db.md",
     "explanation/middleware/auth.md",
@@ -227,7 +224,6 @@
     "explanation/routes/hobbySessions.md",
     "explanation/routes/hobbies.md",
     "explanation/routes/healthLogs.md",
-    "explanation/routes/habits.md",
     "explanation/routes",
     "explanation/models",
     "explanation/middleware",
