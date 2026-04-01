@@ -200,8 +200,8 @@
   },
   "active": "05f69f1c1f10805f",
   "lastOpenFiles": [
-    "explanation/middleware/errorHandler.md",
     "explanation/server.md",
+    "explanation/middleware/errorHandler.md",
     "explanation/config/db.md",
     "explanation/middleware/auth.md",
     "explanation/utils/computedFields.md",
