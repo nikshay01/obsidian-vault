@@ -1,6 +1,6 @@
 # models/HabitDefinition.js — Habit Definition Schema
 
-Defines a trackable habit with flexible completion types, frequency scheduling, streak tracking, and procrastination monitoring.
+Defines a trackable habit with flexible completion types, frequency scheduling, streak tracking, and procrastination monitoring. Actual daily logs go in [[models/HabitLog]]. Exposed via [[routes/habits]].
 
 ---
 

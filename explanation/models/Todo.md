@@ -1,6 +1,6 @@
 # models/Todo.js — Todo Schema
 
-Full task management with deadlines, procrastination tracking, work sessions, and auto-computed durations.
+Full task management with deadlines, procrastination tracking, work sessions, and auto-computed durations. Exposed via [[routes/todos]].
 
 ---
 

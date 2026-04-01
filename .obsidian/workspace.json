@@ -196,6 +196,8 @@
   },
   "active": "05f69f1c1f10805f",
   "lastOpenFiles": [
+    "Untitled.canvas",
+    "2026-04-01.md",
     "ai math/lenier algebra/exercises.md",
     "Untitled.md",
     "explanation/routes/auth.md",
@@ -221,8 +223,6 @@
     "explanation/routes/habits.md",
     "explanation/routes/habitLogs.md",
     "explanation/routes/gamingSessions.md",
-    "explanation/routes/dailySummary.md",
-    "explanation/routes/bodyMetrics.md",
     "explanation/routes",
     "explanation/models",
     "explanation/middleware",
@@ -234,7 +234,6 @@
     "ai math/lenier algebra/Screenshot 2026-03-21 214838.png",
     "Untitled",
     "Untitled 2",
-    "Untitled 1",
-    "Untitled.canvas"
+    "Untitled 1"
   ]
 }
