@@ -5,5 +5,5 @@ const crudRouter = require('../utils/crudRouter');
 const PainLog = require('../models/PainLog');
 module.exports = crudRouter(PainLog, { dateField: 'timestamp' });
 ```
-- Uses `timestamp` for date filtering
-- POST/PUT triggers pre-save that auto-computes `durationMinutes` from `painStartTimestamp` and `painEndTimestamp`
+- Uses `timestamp` for date filtering via [[utils/crudRouter]]
+- POST/PUT triggers pre-save in [[models/PainLog]] that auto-computes `durationMinutes` from `painStartTimestamp` and `painEndTimestamp` using [[utils/computedFields]]

@@ -5,5 +5,5 @@ const crudRouter = require('../utils/crudRouter');
 const SexualSession = require('../models/SexualSession');
 module.exports = crudRouter(SexualSession, { dateField: 'timestampStart' });
 ```
-- Uses `timestampStart` for date filtering
-- No auto-computed fields — all values are directly entered
+- Uses `timestampStart` for date filtering via [[utils/crudRouter]]
+- No auto-computed fields — all values in [[models/SexualSession]] are directly entered
