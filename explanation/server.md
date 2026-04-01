@@ -1,6 +1,6 @@
 # server.js — Entry Point
 
-This is the main file that starts the entire backend. It wires together all middleware, routes, and the database connection.
+This is the main file that starts the entire backend. It wires together all [[middleware/auth|auth middleware]], [[middleware/errorHandler|error handler]], [[middleware/rateLimiter|rate limiter]], [[middleware/validate|validator]], all [[utils/crudRouter|CRUD routes]], and the [[config/db|database connection]].
 
 ---
 
@@ -28,10 +28,10 @@ const { protect } = require('./middleware/auth');
 const { globalLimiter, authLimiter } = require('./middleware/rateLimiter');
 ```
 - Imports our custom modules:
-  - `connectDB` — function to connect to MongoDB
-  - `errorHandler` — catches all errors and sends clean JSON responses
-  - `protect` — JWT authentication middleware
-  - `globalLimiter` / `authLimiter` — rate limiting middleware
+  - [[config/db|connectDB]] — function to connect to MongoDB
+  - [[middleware/errorHandler|errorHandler]] — catches all errors and sends clean JSON responses
+  - [[middleware/auth|protect]] — JWT authentication middleware
+  - [[middleware/rateLimiter|globalLimiter / authLimiter]] — rate limiting middleware
 
 ```js
 const app = express();
@@ -61,7 +61,7 @@ app.use(cors());
 ```js
 app.use(globalLimiter);
 ```
-- Applies **100 requests per 15 minutes** limit to ALL routes
+- Applies **100 requests per 15 minutes** limit to ALL routes (see [[middleware/rateLimiter]])
 - Prevents bot abuse and DDoS attacks
 - After exceeding limit → returns `429 Too Many Requests`
 
@@ -116,14 +116,14 @@ app.get('/api/v1/health', (_req, res) => {
 app.use('/api/v1/auth/register', authLimiter);
 app.use('/api/v1/auth/login', authLimiter);
 ```
-- Applies **stricter rate limiting** (10 requests per 15 min) to register and login endpoints
+- Applies **stricter [[middleware/rateLimiter|rate limiting]]** (10 requests per 15 min) to register and login endpoints
 - Prevents brute-force password attacks
 
 ```js
 app.use('/api/v1/auth', authRoutes(protect));
 ```
-- Mounts the auth router at `/api/v1/auth`
-- Passes `protect` middleware so the router can internally apply it to `/me` and `/password` routes
+- Mounts the [[routes/auth|auth router]] at `/api/v1/auth`
+- Passes [[middleware/auth|protect]] middleware so the router can internally apply it to `/me` and `/password` routes
 - Register and login are public; `/me` and `/password` are protected
 
 ---
@@ -136,10 +136,29 @@ app.use('/api/v1/work-sessions',     protect, require('./routes/workSessions'));
 app.use('/api/v1/meditation',        protect, require('./routes/meditation'));
 // ... (same pattern for all 18 modules)
 ```
-- Every data route has `protect` as the first middleware
+- Every data route has [[middleware/auth|protect]] as the first middleware
 - `protect` verifies the JWT token → if invalid, returns 401 immediately
 - If token valid → `req.user` is set → route handler runs
-- Each `require('./routes/...')` loads the CRUD router for that module
+- Each route file loads the [[utils/crudRouter|CRUD router factory]] for that module:
+  - [[routes/sleep]] → [[models/Sleep]]
+  - [[routes/workSessions]] → [[models/WorkSession]]
+  - [[routes/meditation]] → [[models/Meditation]]
+  - [[routes/devotion]] → [[models/Devotion]]
+  - [[routes/gamingSessions]] → [[models/GamingSession]]
+  - [[routes/nutrition]] → [[models/Nutrition]]
+  - [[routes/screenTime]] → [[models/ScreenTime]]
+  - [[routes/mood]] → [[models/MoodEntry]]
+  - [[routes/healthLogs]] → [[models/HealthLog]]
+  - [[routes/painLogs]] → [[models/PainLog]]
+  - [[routes/bodyMetrics]] → [[models/BodyMetric]]
+  - [[routes/hobbies]] → [[models/Hobby]]
+  - [[routes/hobbySessions]] → [[models/HobbySession]]
+  - [[routes/habits]] → [[models/HabitDefinition]]
+  - [[routes/habitLogs]] → [[models/HabitLog]]
+  - [[routes/todos]] → [[models/Todo]]
+  - [[routes/sexualSessions]] → [[models/SexualSession]]
+  - [[routes/scores]] → [[models/Score]]
+  - [[routes/dailySummary]] → [[models/DailySummary]]
 
 ---
 
@@ -156,7 +175,7 @@ app.use((_req, res) => {
 ```js
 app.use(errorHandler);
 ```
-- **Global error handler** — catches any `next(err)` calls from route handlers
+- **Global [[middleware/errorHandler|error handler]]** — catches any `next(err)` calls from route handlers
 - Must be LAST middleware (4 arguments: `err, req, res, next`)
 
 ---
@@ -178,7 +197,7 @@ const start = async () => {
 };
 start();
 ```
-- `await connectDB()` — waits for MongoDB connection before doing anything
-- If DB fails → `process.exit(1)` in `db.js` kills the server
+- `await connectDB()` — waits for MongoDB connection before doing anything (see [[config/db]])
+- If DB fails → `process.exit(1)` in [[config/db|db.js]] kills the server
 - `app.listen(PORT)` — starts accepting HTTP connections on that port
 - `start()` is called immediately (self-invoking async pattern)

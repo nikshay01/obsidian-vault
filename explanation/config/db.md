@@ -1,6 +1,6 @@
 # config/db.js — MongoDB Connection
 
-This file exports a single function that connects Mongoose to your MongoDB instance.
+This file exports a single function that connects Mongoose to your MongoDB instance. Called by [[server|server.js]] at startup.
 
 ---
 
@@ -52,4 +52,4 @@ const connectDB = async () => {
 ```js
 module.exports = connectDB;
 ```
-- Exports the function so `server.js` can call it: `await connectDB()`
+- Exports the function so [[server|server.js]] can call it: `await connectDB()`
