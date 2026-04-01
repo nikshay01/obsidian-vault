@@ -5,5 +5,5 @@ const crudRouter = require('../utils/crudRouter');
 const HealthLog = require('../models/HealthLog');
 module.exports = crudRouter(HealthLog, { dateField: 'date' });
 ```
-- Uses `date` for filtering
-- No computed fields — all health metrics are directly entered
+- Uses `date` for filtering via [[utils/crudRouter]]
+- No computed fields — all health metrics in [[models/HealthLog]] are directly entered
