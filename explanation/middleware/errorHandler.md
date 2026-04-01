@@ -1,6 +1,6 @@
 # middleware/errorHandler.js — Centralized Error Handler
 
-This middleware catches ALL errors from route handlers. When any route calls `next(err)`, Express skips straight to this function.
+This middleware catches ALL errors from route handlers. When any route calls `next(err)`, Express skips straight to this function. Registered as the last middleware in [[server|server.js]].
 
 ---
 
@@ -94,7 +94,7 @@ const errorHandler = (err, req, res, _next) => {
     error = { message: 'Token expired', statusCode: 401 };
   }
 ```
-- These are usually caught in `auth.js`, but if they leak through, we handle them here too
+- These are usually caught in [[middleware/auth|auth.js]], but if they leak through, we handle them here too
 - Both return 401 (Unauthorized)
 
 ---
@@ -119,4 +119,4 @@ const errorHandler = (err, req, res, _next) => {
 ```js
 module.exports = errorHandler;
 ```
-- Exported and used in `server.js` as the very last `app.use()`
+- Exported and used in [[server|server.js]] as the very last `app.use()`

@@ -1,6 +1,6 @@
 # middleware/validate.js — Input Validation Result Handler
 
-This middleware checks if `express-validator` found any validation errors and returns them in a clean format.
+This middleware checks if `express-validator` found any validation errors and returns them in a clean format. Used in [[routes/auth|auth routes]] and other route handlers.
 
 ---
 

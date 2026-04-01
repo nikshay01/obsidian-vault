@@ -1,6 +1,6 @@
 # middleware/rateLimiter.js — Rate Limiting
 
-Prevents abuse by limiting how many requests an IP address can make in a time window.
+Prevents abuse by limiting how many requests an IP address can make in a time window. Applied in [[server|server.js]].
 
 ---
 
@@ -84,5 +84,5 @@ const authLimiter = rateLimit({
 module.exports = { globalLimiter, authLimiter };
 ```
 - Exports both limiters
-- `globalLimiter` is applied to ALL routes in `server.js`
-- `authLimiter` is applied only to `/auth/register` and `/auth/login`
+- `globalLimiter` is applied to ALL routes in [[server|server.js]]
+- `authLimiter` is applied only to `/auth/register` and `/auth/login` (see [[routes/auth]])

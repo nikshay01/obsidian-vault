@@ -1,6 +1,6 @@
 # middleware/auth.js — JWT Authentication Guard
 
-This middleware protects routes by verifying JWT tokens. It runs BEFORE every protected route handler.
+This middleware protects routes by verifying JWT tokens. It runs BEFORE every protected route handler. Used in [[server|server.js]] and [[routes/auth|auth routes]].
 
 ---
 
@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 ```
 - `jsonwebtoken` — library to create and verify JWT tokens
-- `User` — the User model, needed to look up the user from the token's ID
+- [[models/User|User]] — the User model, needed to look up the user from the token's ID
 
 ---
 
@@ -75,8 +75,8 @@ const protect = async (req, res, next) => {
 ```js
     req.user = await User.findById(decoded.id).select('-passwordHash');
 ```
-- `decoded.id` — the user's MongoDB `_id` stored in the token during login/register
-- `User.findById()` — fetches the full user document from the database
+- `decoded.id` — the user's MongoDB `_id` stored in the token during login/register (see [[models/User|User.getSignedJwtToken()]])
+- `User.findById()` — fetches the full user document from the database (see [[models/User]])
 - `.select('-passwordHash')` — EXCLUDES the password hash from the result (the minus `-` means exclude)
 - Attaches the user object to `req.user` — now every subsequent middleware/route can access `req.user`
 
@@ -117,6 +117,7 @@ const protect = async (req, res, next) => {
   - `JsonWebTokenError` — token was tampered with or malformed
   - `TokenExpiredError` — token's `exp` date has passed
 - Returns generic 401 — doesn't reveal WHICH error (security best practice)
+- These errors are also handled by [[middleware/errorHandler]] as a fallback
 
 ---
 
