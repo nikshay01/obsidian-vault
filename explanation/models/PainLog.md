@@ -1,6 +1,6 @@
 # models/PainLog.js — Pain Log Schema
 
-Tracks pain episodes with per-body-part intensities and auto-computed duration.
+Tracks pain episodes with per-body-part intensities and auto-computed duration. Uses [[utils/computedFields]]. Exposed via [[routes/painLogs]].
 
 ---
 
@@ -40,7 +40,7 @@ painLogSchema.pre('save', function (next) {
   next();
 });
 ```
-- Auto-computes duration from start/end timestamps
+- Auto-computes duration from start/end timestamps using [[utils/computedFields|durationMinutes()]]
 
 ```js
 module.exports = mongoose.model('PainLog', painLogSchema);

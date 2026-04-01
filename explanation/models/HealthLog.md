@@ -1,6 +1,6 @@
 # models/HealthLog.js — Health Log Schema
 
-Tracks daily health metrics: energy throughout the day, symptoms, and physical state.
+Tracks daily health metrics: energy throughout the day, symptoms, and physical state. Exposed via [[routes/healthLogs]].
 
 ---
 

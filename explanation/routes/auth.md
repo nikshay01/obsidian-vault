@@ -1,6 +1,6 @@
 # routes/auth.js — Authentication Routes
 
-This file handles user registration, login, profile management, and password changes. It's a **factory function** that accepts the `protect` middleware.
+This file handles user registration, login, profile management, and password changes. It's a **factory function** that accepts the `protect` middleware. Registered in [[server|server.js]].
 
 ---
 
@@ -12,15 +12,15 @@ const User = require('../models/User');
 ```
 - `express` — web framework
 - `body` — from express-validator, creates validation rules for request body fields
-- `validate` — our custom middleware that checks validation results
-- `User` — the User model for database operations
+- `validate` — our custom middle ware that checks validation results (see [[middleware/validate]])
+- `User` — the [[models/User|User]] model for database operations
 
 ```js
 module.exports = function (protect) {
 const router = express.Router();
 ```
-- This is a **factory function** — it receives `protect` as a parameter and returns a router
-- This pattern allows the server.js to inject the protect middleware
+- This is a **factory function** — it receives `protect` (from [[middleware/auth]]) as a parameter and returns a router
+- This pattern allows the [[server|server.js]] to inject the protect middleware
 - Creating a fresh router instance inside the function
 
 ---
@@ -180,7 +180,7 @@ router.get('/me', protect, async (req, res) => {
 });
 ```
 - `protect` middleware runs first → verifies JWT → sets `req.user`
-- Simply returns the user's profile (password hash is already excluded by `protect`)
+- Simply returns the user's profile (password hash is already excluded by [[middleware/auth|protect]])
 
 ---
 
@@ -289,4 +289,4 @@ return router;
 };
 ```
 - Returns the configured router from the factory function
-- `server.js` calls: `app.use('/api/v1/auth', authRoutes(protect))`
+- [[server|server.js]] calls: `app.use('/api/v1/auth', authRoutes(protect))`

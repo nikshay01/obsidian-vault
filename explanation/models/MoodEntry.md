@@ -1,6 +1,6 @@
 # models/MoodEntry.js — Mood Entry Schema
 
-Tracks mood snapshots with 15+ mental/emotional metrics and multi-entry emotions.
+Tracks mood snapshots with 15+ mental/emotional metrics and multi-entry emotions. Exposed via [[routes/mood]].
 
 ---
 

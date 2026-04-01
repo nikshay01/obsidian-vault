@@ -3,12 +3,12 @@
 ```js
 const crudRouter = require('../utils/crudRouter');
 ```
-- Imports the CRUD factory function
+- Imports the [[utils/crudRouter|CRUD factory function]]
 
 ```js
 const Sleep = require('../models/Sleep');
 ```
-- Imports the Sleep Mongoose model
+- Imports the [[models/Sleep|Sleep Mongoose model]]
 
 ```js
 module.exports = crudRouter(Sleep, { dateField: 'date' });
@@ -18,8 +18,8 @@ module.exports = crudRouter(Sleep, { dateField: 'date' });
 - This single line generates ALL 5 endpoints:
   - `GET /api/v1/sleep` — list all sleep records (paginated, user-scoped)
   - `GET /api/v1/sleep/:id` — get one sleep record
-  - `POST /api/v1/sleep` — create a sleep record (triggers pre-save: computes totalSleepHours, deltas, etc.)
+  - `POST /api/v1/sleep` — create a sleep record (triggers pre-save: computes totalSleepHours, deltas, etc. via [[utils/computedFields]])
   - `PUT /api/v1/sleep/:id` — update a sleep record (re-triggers computed fields)
   - `DELETE /api/v1/sleep/:id` — delete a sleep record
 
-All routes are protected by the `protect` middleware applied in `server.js`.
+All routes are protected by the [[middleware/auth|protect]] middleware applied in [[server|server.js]].

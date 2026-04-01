@@ -1,6 +1,6 @@
 # models/Hobby.js — Hobby Definition Schema
 
-Defines a hobby with goals, milestones, and aggregated stats. This is the "template" — actual sessions go in HobbySession.
+Defines a hobby with goals, milestones, and aggregated stats. This is the "template" — actual sessions go in [[models/HobbySession]]. Exposed via [[routes/hobbies]].
 
 ---
 

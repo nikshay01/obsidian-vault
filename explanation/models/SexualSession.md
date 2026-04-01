@@ -1,6 +1,6 @@
 # models/SexualSession.js — Sexual Session Schema
 
-Tracks sexual health sessions with pre/post mental states, trigger analysis, and self-regulation metrics.
+Tracks sexual health sessions with pre/post mental states, trigger analysis, and self-regulation metrics. Exposed via [[routes/sexualSessions]].
 
 ---
 

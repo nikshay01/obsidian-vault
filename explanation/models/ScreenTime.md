@@ -1,6 +1,6 @@
 # models/ScreenTime.js — Screen Time Schema
 
-Tracks daily screen time usage with auto-computed autopilot percentage.
+Tracks daily screen time usage with auto-computed autopilot percentage. Uses [[utils/computedFields]]. Exposed via [[routes/screenTime]].
 
 ---
 
@@ -46,7 +46,7 @@ screenTimeSchema.pre('save', function (next) {
 });
 ```
 - `autopilotPercent(70)` returns `30` — the mindless usage percentage
-- Uses the helper from `utils/computedFields.js` which clamps between 0-100
+- Uses the helper from [[utils/computedFields|computedFields.js]] which clamps between 0-100
 
 ```js
 module.exports = mongoose.model('ScreenTime', screenTimeSchema);

@@ -1,6 +1,6 @@
 # models/HobbySession.js — Hobby Session Schema
 
-Tracks individual hobby practice sessions with quality metrics and auto-computed duration.
+Tracks individual hobby practice sessions with quality metrics and auto-computed duration. Belongs to a [[models/Hobby]]. Uses [[utils/computedFields]]. Exposed via [[routes/hobbySessions]].
 
 ---
 
@@ -14,7 +14,7 @@ Tracks individual hobby practice sessions with quality metrics and auto-computed
       index: true,
     },
 ```
-- References which Hobby this session belongs to
+- References which [[models/Hobby|Hobby]] this session belongs to
 - `ref: 'Hobby'` — enables `.populate('hobbyId')` to load the full hobby data
 - Indexed for fast lookup of all sessions for a specific hobby
 
@@ -39,7 +39,7 @@ hobbySessionSchema.pre('save', function (next) {
   next();
 });
 ```
-- Auto-computes duration from start/end — same pattern as other session models
+- Auto-computes duration from start/end (using [[utils/computedFields|durationMinutes()]]) — same pattern as other session models
 
 ```js
 module.exports = mongoose.model('HobbySession', hobbySessionSchema);
