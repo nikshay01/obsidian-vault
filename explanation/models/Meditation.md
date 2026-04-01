@@ -1,6 +1,6 @@
 # models/Meditation.js — Meditation Session Schema
 
-Tracks meditation sessions with pre/post mental states, practice metrics, physiological response, and spiritual state.
+Tracks meditation sessions with pre/post mental states, practice metrics, physiological response, and spiritual state. Exposed via [[routes/meditation]]. User config for types defined in [[models/User|User.meditation.types]].
 
 ---
 

@@ -1,6 +1,6 @@
 # utils/computedFields.js — Shared Calculation Helpers
 
-These utility functions are used by Mongoose pre-save hooks across multiple models to auto-compute derived fields.
+These utility functions are used by Mongoose pre-save hooks across multiple models to auto-compute derived fields. Used by [[models/Sleep]], [[models/WorkSession]], [[models/GamingSession]], [[models/HobbySession]], [[models/PainLog]], [[models/Devotion]], [[models/Nutrition]], [[models/ScreenTime]], [[models/HabitLog]], and [[models/Todo]].
 
 ---
 
@@ -29,6 +29,7 @@ function durationMinutes(start, end) {
 - `ms / 60000` — converts milliseconds to minutes (60,000 ms = 1 minute)
 - `Math.round()` — rounds to nearest whole minute
 - `ms > 0 ?` — if end is before start (negative duration), return 0 instead of a negative number
+- Used by: [[models/Sleep]], [[models/WorkSession]], [[models/GamingSession]], [[models/HobbySession]], [[models/PainLog]], [[models/Todo]]
 
 ---
 
@@ -43,6 +44,7 @@ function durationHours(start, end) {
 - `3600000` ms = 1 hour
 - `.toFixed(2)` — keeps 2 decimal places (e.g., `8.25` hours)
 - `parseFloat()` — removes trailing zeros (`"8.00"` → `8`, `"8.50"` → `8.5`)
+- Used by: [[models/Sleep]] for `totalSleepHours` computation
 
 ---
 
@@ -85,6 +87,7 @@ function timeDeltaMinutes(actualDate, targetTimeStr) {
 ```
 - Returns the difference: `450 - 360 = 90` (90 minutes late)
 - Positive = late/over, Negative = early/under
+- Used by: [[models/Sleep]] for sleep/wake time delta computation
 
 ---
 
@@ -113,6 +116,7 @@ function autopilotPercent(intentional) {
   - `Math.min(100, x)` — ensures result is ≤ 100
   - `Math.max(0, x)` — ensures result is ≥ 0
 - `intentional == null` — checks for both `null` AND `undefined` (loose equality)
+- Used by: [[models/ScreenTime]] pre-save hook
 
 ---
 
@@ -127,6 +131,7 @@ function completionPercent(logged, target) {
 - `!target || target === 0` — prevents division by zero
 - `.toFixed(1)` — one decimal place
 - `parseFloat()` — removes trailing zero (`"100.0"` → `100`)
+- Used by: [[models/HabitLog]] pre-save hook
 
 ---
 
@@ -146,6 +151,7 @@ function formatHoursToHrMin(hours) {
 - `Math.round()` — rounds minutes to nearest whole number
 - `sign` — adds `-` prefix for negative values
 - Examples: `1.5` → `"1hr 30min"`, `-0.5` → `"-0hr 30min"`
+- Used by: [[models/Sleep]] for human-readable sleep hour delta display
 
 ---
 

@@ -1,6 +1,6 @@
 # models/User.js — User Schema & Authentication
 
-The most complex model — handles identity, passwords, JWT tokens, preferences, goals, and aggregates.
+The most complex model — handles identity, passwords, JWT tokens, preferences, goals, and aggregates. Used by [[middleware/auth]], [[routes/auth]], and referenced by every data model via `userId`.
 
 ---
 
@@ -200,3 +200,4 @@ module.exports = mongoose.model('User', userSchema);
 - Registers the schema as a Mongoose model named `'User'`
 - MongoDB will create a collection called `users` (auto-pluralized)
 - Everywhere in the code, `require('./models/User')` gives you the Model class
+- Used by [[middleware/auth]] to look up users from JWT tokens and by [[routes/auth]] for login/register

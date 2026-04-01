@@ -1,6 +1,6 @@
 # models/Score.js — Daily Composite Scores Schema
 
-Stores daily aggregated scores across all modules with detailed breakdowns and trends. One score entry per user per day.
+Stores daily aggregated scores across all modules with detailed breakdowns and trends. One score entry per user per day. Exposed via [[routes/scores]]. Related to [[models/DailySummary]].
 
 ---
 
@@ -62,7 +62,7 @@ Each composite score has a breakdown object showing what contributed to it:
 ```js
 scoreSchema.index({ userId: 1, date: 1 }, { unique: true });
 ```
-- One score per user per day — same pattern as DailySummary
+- One score per user per day — same pattern as [[models/DailySummary]]
 
 ```js
 module.exports = mongoose.model('Score', scoreSchema);

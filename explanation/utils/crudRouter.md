@@ -1,6 +1,6 @@
 # utils/crudRouter.js — Reusable CRUD Route Factory
 
-This is the **most important architectural piece** in the backend. Instead of writing GET/POST/PUT/DELETE handlers 18 times, this factory generates them for ANY Mongoose model.
+This is the **most important architectural piece** in the backend. Instead of writing GET/POST/PUT/DELETE handlers 18 times, this factory generates them for ANY Mongoose model. Used by all [[routes/sleep|route files]] (see [[server|server.js]] for the full list).
 
 ---
 
@@ -36,7 +36,7 @@ function crudRouter(Model, opts = {}) {
 ```
 - **Always** filters by the logged-in user's ID
 - This is the core security mechanism — users can ONLY see their own data
-- `req.user._id` was set by the `protect` middleware
+- `req.user._id` was set by the [[middleware/auth|protect]] middleware
 
 ### Date Filtering
 
@@ -172,8 +172,8 @@ function crudRouter(Model, opts = {}) {
       const doc = await Model.create(req.body);
 ```
 - `Model.create()` — creates and saves a new document
-- This triggers all Mongoose pre-save hooks (computed fields get calculated)
-- If validation fails → Mongoose throws `ValidationError` → caught by `catch` → `next(err)` → `errorHandler`
+- This triggers all Mongoose pre-save hooks (computed fields get calculated, see [[utils/computedFields]])
+- If validation fails → Mongoose throws `ValidationError` → caught by `catch` → `next(err)` → [[middleware/errorHandler]]
 
 ```js
       if (opts.afterCreate) {
@@ -224,8 +224,8 @@ function crudRouter(Model, opts = {}) {
 - `Object.assign(doc, req.body)` — merges the request body into the existing document
   - New fields get added, existing fields get overwritten
   - Fields NOT in the request body stay unchanged
-- `doc.save()` — saves and **triggers pre-save hooks** 
-  - This is why we use `findOne` + `save()` instead of `findOneAndUpdate()` 
+- `doc.save()` — saves and **triggers pre-save hooks** (see [[utils/computedFields]])
+  - This is why we use `findOne` + `save()` instead of `findOneAndUpdate()`
   - `findOneAndUpdate` would bypass pre-save hooks (no computed fields!)
 
 ```js
@@ -270,3 +270,4 @@ module.exports = crudRouter;
   const Sleep = require('../models/Sleep');
   module.exports = crudRouter(Sleep, { dateField: 'date' });
   ```
+- See [[routes/sleep]], [[routes/workSessions]], [[routes/meditation]], [[routes/nutrition]], [[routes/screenTime]], [[routes/todos]], and all other route files for usage examples.

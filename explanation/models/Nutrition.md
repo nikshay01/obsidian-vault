@@ -1,6 +1,6 @@
 # models/Nutrition.js — Nutrition Daily Log Schema
 
-Tracks daily nutrition with meals, food items, and auto-computed totals at both meal and daily levels.
+Tracks daily nutrition with meals, food items, and auto-computed totals at both meal and daily levels. Exposed via [[routes/nutrition]].
 
 ---
 

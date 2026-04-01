@@ -1,6 +1,6 @@
 # models/WorkSession.js — Work Session Schema
 
-Tracks work/study sessions with auto-computed duration, pause totals, and productive time.
+Tracks work/study sessions with auto-computed duration, pause totals, and productive time. Uses [[utils/computedFields]] helpers. Exposed via [[routes/workSessions]].
 
 ---
 
@@ -60,7 +60,7 @@ workSessionSchema.pre('save', function (next) {
     this.durationMin = durationMinutes(this.startTime, this.endTime);
   }
 ```
-- Computes total session duration from start/end times
+- Computes total session duration from start/end times using [[utils/computedFields|durationMinutes()]]
 
 ```js
   let totalPause = 0;

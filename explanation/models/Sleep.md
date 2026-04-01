@@ -1,6 +1,6 @@
 # models/Sleep.js — Sleep Log Schema
 
-Handles sleep tracking with auto-computed durations, interruption totals, deltas, and nap/dream tracking.
+Handles sleep tracking with auto-computed durations, interruption totals, deltas, and nap/dream tracking. Uses [[utils/computedFields]] helpers. Exposed via [[routes/sleep]].
 
 ---
 
@@ -41,7 +41,7 @@ const dreamSchema = new mongoose.Schema({ ... }, { _id: false });
       index: true,
     },
 ```
-- `ref: 'User'` — references the User collection (for Mongoose `.populate()`)
+- `ref: 'User'` — references the [[models/User|User]] collection (for Mongoose `.populate()`)
 - `required: true` — every sleep record must belong to a user
 - `index: true` — creates a database index for fast queries (filtering by userId is very common)
 
@@ -88,6 +88,7 @@ sleepSchema.pre('save', function (next) {
 ```
 - For each interruption: if it has start/end times but no duration, compute it
 - `!i.durationMinutes` — respects manually entered durations (won't overwrite)
+- Uses [[utils/computedFields|durationMinutes()]] helper
 
 ```js
     this.totalInterruptionMinutes = this.interruptions.reduce(
@@ -110,7 +111,7 @@ sleepSchema.pre('save', function (next) {
     );
   }
 ```
-- `rawHours` — total time from going to sleep to waking up
+- `rawHours` — total time from going to sleep to waking up (via [[utils/computedFields|durationHours()]])
 - Subtracts interruption time (converted from minutes to hours: `/ 60`)
 - `.toFixed(2)` — keeps 2 decimal places, `parseFloat` removes trailing zeros
 
