@@ -20,19 +20,8 @@
               "icon": "lucide-file",
               "title": "server"
             }
-          },
-          {
-            "id": "2f966fe6c9bd4d63",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -195,7 +184,7 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "2f966fe6c9bd4d63",
+  "active": "05f69f1c1f10805f",
   "lastOpenFiles": [
     "explanation/routes/auth.md",
     "explanation/config/db.md",
