@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "explanation/server.md",
+                "file": "explanation/routes/dailySummary.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "server"
+              "title": "dailySummary"
             }
           },
           {
@@ -104,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "explanation/server.md",
+                "file": "explanation/routes/dailySummary.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for server"
+              "title": "Backlinks for dailySummary"
             }
           },
           {
@@ -195,6 +195,7 @@
   },
   "active": "05f69f1c1f10805f",
   "lastOpenFiles": [
+    "explanation/routes/hobbies.md",
     "explanation/server.md",
     "explanation/routes/auth.md",
     "explanation/config/db.md",
