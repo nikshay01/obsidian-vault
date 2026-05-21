@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ai math/lenier algebra/vectors.md",
+                "file": "explanation/routes/sleep.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "vectors"
+              "title": "sleep"
             }
           },
           {
@@ -104,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ai math/lenier algebra/vectors.md",
+                "file": "explanation/routes/sleep.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for vectors"
+              "title": "Backlinks for sleep"
             }
           },
           {
@@ -195,8 +195,9 @@
   },
   "active": "05f69f1c1f10805f",
   "lastOpenFiles": [
-    "ai math/lenier algebra/exercises.md",
     "explanation/config/db.md",
+    "ai math/lenier algebra/vectors.md",
+    "ai math/lenier algebra/exercises.md",
     "explanation/routes/dailySummary.md",
     "explanation/routes/hobbies.md",
     "explanation/server.md",
@@ -211,7 +212,6 @@
     "explanation/utils/computedFields.md",
     "2026-04-01.md",
     "explanation/models/Todo.md",
-    "ai math/lenier algebra/vectors.md",
     "explanation/utils/crudRouter.md",
     "explanation/utils",
     "explanation/routes/workSessions.md",
